@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<!-- published at 2016-02-24 -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Online Book Store</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+    <script type="text/javascript" src="/jquery.js"></script>
+
+    <link rel="stylesheet" href="/js/jquery-ui-1.11.4.custom/jquery-ui.theme.css">
+    <script src="/js/jquery-1.12.1.js"></script>
+    <script src="/js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/searchbox.css" />
+
+    <script>
+      function confirmAct() {
+        if(confirm('Are you sure to log out?'))
+        {
+          return true;
+        }
+        return false;
+      } 
+    </script>
+  </head>
+
+<body>
+  <section id="page">
+    <!-- Define the header section of the page --> 
+    <header>
+      <a href="/"><img src="/images/logo.jpg" border="0" width="150"></a>
+      <!-- Define the main site navigation -->
+      <nav class="clear">
+        <ul>
+          <li>
+            <a href="/books"><img src="/images/icons/home.png" border="0" width="35"></a>
+          </li>
+          <li>
+            <a href="/books"><img src="/images/icons/books.png" border="0" width="35"></a>
+          </li>
+          <li>
+            <a href="/members"><img src="/images/icons/register.png" border="0" width="35"></a>
+          </li>
+          <li>
+            <a href="/books"><img src="/images/icons/cart.png" border="0" width="35"></a>
+          </li>
+          <li>
+            <a href="/authentication"><img src="/images/icons/login.png" border="0" width="35"></a>
+          </li>
+          <li>
+            <a href="<?php echo $this->url(
+              array('controller' => 'authentication', 'action' => 'logout'), 'default', true) ?>" 
+              onclick="return confirmAct();">
+              <img src="/images/icons/admin.png" border="0" width="35"></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <aside>
+      <left>
+      <!-- Define the search box -->
+        <form action="<?php echo $this->url(
+          array(
+            'controller' => 'books',
+            'action'     => 'search'
+          ),
+          'default',
+          true) ?>" method="post" id="searchForm" class="form">
+          <div class="formFiled clearfix">
+            <input type="text"  class="inputText search" placeholder="Please enter your keyword." name="search"/>
+            <input type="submit" class="btn submit" id="search_submit" value="Search"/>
+          </div>    
+        </form> 
+      </left>
+    </aside>
+
+    <section id="articles">

@@ -1,0 +1,13 @@
+<script type="text/javascript">
+	$(function() {
+		$("#birthday").datepicker();
+  	});
+</script>
+
+<h2>Edit your information</h2>
+<p>To edit your member information, please complete this form below to and click submit.</p>
+
+<?php
+$this -> editForm -> setAction($this -> url());
+echo $this -> editForm;
+?>
